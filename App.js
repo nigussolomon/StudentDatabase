@@ -1,33 +1,20 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { AppBar, Button, IconButton } from "@react-native-material/core";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Button, IconButton } from "@react-native-material/core";
 import * as eva from "@eva-design/eva";
-import { ApplicationProvider } from "@ui-kitten/components";
-import {
-  IconRegistry,
-  Icon,
-  Layout,
-  MenuItem,
-  OverflowMenu,
-  TopNavigation,
-  TopNavigationAction,
-} from "@ui-kitten/components";
+import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import PasswordReset from "./components/PasswordReset";
 import Home from "./layouts/Home";
+import Menu from "./components/Menu";
 
 const MenuIcon = (props) => <Icon name="menu" {...props} />;
-const HomeIcon = (props) => (
-  <Icon color="#00B822" name="home-outline" {...props} />
-);
-const LogoutIcon = (props) => (
-  <Icon color="#00B822" name="log-out" {...props} />
-);
+const HomeIcon = (props) => <Icon name="home-outline" {...props} />;
+const LogoutIcon = (props) => <Icon name="log-out" {...props} />;
 
 const Stack = createNativeStackNavigator();
 const RegisterScreen = ({ navigation }) => {
@@ -55,50 +42,9 @@ const PasswordResetScreen = ({ navigation }) => {
 };
 
 const HomeScreen = ({ navigation }) => {
-  const navigateHome = () => {
-    navigation.navigate("Home");
-    setMenuVisible(!menuVisible);
-  };
-
-  const logout = () => {
-    navigation.navigate("Login");
-    setMenuVisible(!menuVisible);
-  };
-
-  const [menuVisible, setMenuVisible] = React.useState(false);
-
-  const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
-  };
-
-  const renderMenuAction = () => (
-    <TopNavigationAction icon={MenuIcon} onPress={toggleMenu} />
-  );
-
-  const renderRightActions = () => (
-    <React.Fragment>
-      <OverflowMenu
-        style={{ marginTop: 30 }}
-        anchor={renderMenuAction}
-        visible={menuVisible}
-        onBackdropPress={toggleMenu}
-      >
-        <MenuItem
-          accessoryLeft={HomeIcon}
-          title="Home"
-          onPress={navigateHome}
-        />
-        <MenuItem accessoryLeft={LogoutIcon} title="Logout" onPress={logout} />
-      </OverflowMenu>
-    </React.Fragment>
-  );
-
   return (
     <View style={styles.windowView}>
-      <TopNavigation
-        style={{ minHeight: 128 }}
-        accessoryRight={renderRightActions}
-      />
+      <Menu navigation={navigation}></Menu>
       <View style={styles.containerAlternative}>
         <Home></Home>
       </View>
@@ -142,7 +88,6 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-        <StatusBar auto />
       </ApplicationProvider>
     </>
   );
@@ -157,7 +102,7 @@ const styles = StyleSheet.create({
   },
 
   containerAlternative: {
-    flex: .75,
+    flex: 0.75,
     padding: 20,
     backgroundColor: "#fff",
     justifyContent: "center",
