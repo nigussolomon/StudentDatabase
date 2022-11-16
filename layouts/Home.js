@@ -1,8 +1,11 @@
-import { Stack, Text, Button, TextInput, AppBar } from "@react-native-material/core";
+import { Stack, Text, Button, TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { View } from "react-native";
 
-export default function Home() {
+export default function Home(params) {
+  const students = () => {
+    params.navigation.navigate("ListStudent")
+  }
   return (
     <Stack spacing={10}>
       <Text style={styles.headTxt} variant="h4">
@@ -19,6 +22,7 @@ export default function Home() {
           color="#00B822"
           style={styles.btn}
           title="Students"
+          onPress={students}
         />
       </View>
     </Stack>
