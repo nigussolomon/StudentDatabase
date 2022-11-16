@@ -11,6 +11,11 @@ import Login from "./components/Login";
 import PasswordReset from "./components/PasswordReset";
 import Home from "./layouts/Home";
 import Menu from "./components/Menu";
+import AddStudent from "./layouts/addStudent";
+import EditStudent from "./layouts/editStudent";
+import ListStudent from "./layouts/listStudent";
+import DeleteStudent from "./layouts/deleteStudent";
+import Profile from "./layouts/profile"
 
 const MenuIcon = (props) => <Icon name="menu" {...props} />;
 const HomeIcon = (props) => <Icon name="home-outline" {...props} />;
@@ -44,9 +49,64 @@ const PasswordResetScreen = ({ navigation }) => {
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
-      <Menu navigation={navigation}></Menu>
-      <View style={styles.containerAlternative}>
-        <Home></Home>
+      <Menu navigation={navigation} title="Home"></Menu>
+      <View style={styles.containerHome}>
+        <Home navigation={navigation} ></Home>
+      </View>
+    </View>
+  );
+};
+
+const AddStudentScreen = ({ navigation }) => {
+  return (
+    <View style={styles.windowView}>
+      <Menu navigation={navigation} title="New Student"></Menu>
+      <View style={styles.containerHome}>
+        <AddStudent></AddStudent>
+      </View>
+    </View>
+  );
+};
+
+const EditStudentScreen = ({ navigation }) => {
+  return (
+    <View style={styles.windowView}>
+      <Menu navigation={navigation} title="Edit Student"></Menu>
+      <View style={styles.containerHome}>
+        <EditStudent></EditStudent>
+      </View>
+    </View>
+  );
+};
+
+const ListStudentScreen = ({ navigation }) => {
+  return (
+    <View style={styles.windowView}>
+      <Menu navigation={navigation} title="List Student"></Menu>
+      <View style={styles.containerHome}>
+        <ListStudent></ListStudent>
+      </View>
+    </View>
+  );
+};
+
+const DeleteStudentScreen = ({ navigation }) => {
+  return (
+    <View style={styles.windowView}>
+      <Menu navigation={navigation} title="Delete Student"></Menu>
+      <View style={styles.containerHome}>
+        <DeleteStudent></DeleteStudent>
+      </View>
+    </View>
+  );
+};
+
+const ProfileScreen = ({ navigation }) => {
+  return (
+    <View style={styles.windowView}>
+      <Menu navigation={navigation} title="Profile"></Menu>
+      <View style={styles.containerHome}>
+        <Profile></Profile>
       </View>
     </View>
   );
@@ -63,29 +123,18 @@ export default function App() {
               headerShown: false,
             }}
           >
-            <Stack.Screen
-              name="Register"
-              component={RegisterScreen}
-              options={{ title: "Register" }}
-            />
-
-            <Stack.Screen
-              name="Login"
-              component={LoginScreen}
-              options={{ title: "Login" }}
-            />
-
+            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen
               name="PasswordReset"
               component={PasswordResetScreen}
-              options={{ title: "Password Reset" }}
             />
-
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ title: "Home" }}
-            />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="AddStudent" component={AddStudentScreen} />
+            <Stack.Screen name="EditStudent" component={EditStudentScreen} />
+            <Stack.Screen name="ListStudent" component={ListStudentScreen} />
+            <Stack.Screen name="DeleteStudent" component={DeleteStudentScreen} />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ApplicationProvider>
@@ -101,8 +150,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  containerAlternative: {
-    flex: 0.75,
+  containerHome: {
+    flex: 0.5,
     padding: 20,
     backgroundColor: "#fff",
     justifyContent: "center",
