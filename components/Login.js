@@ -6,6 +6,10 @@ export default function Login(params) {
     alert("Your reset OTP is 102345");
     params.navigation.navigate("PasswordReset")
   }
+
+  const handleLogin = () => {
+    params.navigation.navigate("Home")
+  }
   return (
     <Stack spacing={10}>
       <TextInput
@@ -40,7 +44,7 @@ export default function Login(params) {
         color="#00B822"
         style={styles.btn}
         title="Login"
-        onPress={() => alert("Sucessfully logged in")}
+        onPress={handleLogin}
       />
       <Text variant="body2">
         Forgot your password?{" "}
