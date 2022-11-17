@@ -17,7 +17,7 @@ export default function ListStudent() {
   );
 
   return (
-    <Stack spacing={10}>
+    <Stack spacing={10} style={styles.container}>
       <Text style={styles.headTxt} variant="h4">
         List Students
       </Text>
@@ -45,4 +45,8 @@ const styles = {
   btnView: {
     flexDirection: "row",
   },
+
+  container: {
+    marginBottom: 70,
+  }
 };

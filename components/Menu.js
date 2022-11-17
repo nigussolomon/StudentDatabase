@@ -114,7 +114,7 @@ export default function Menu(params) {
 
   return (
     <TopNavigation
-      style={{ minHeight: 128 }}
+      style={{ marginTop: 35, }}
       accessoryLeft={renderLeftActions}
       accessoryRight={renderRightActions}
     />

@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="Home"></Menu>
-      <View style={styles.containerAlternate}>
+      <View style={styles.containerHome}>
         <Home navigation={navigation} ></Home>
       </View>
     </View>
@@ -155,6 +155,13 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingTop: 0,
     backgroundColor: "#fff"
+  },
+
+  containerHome: {
+    flex: .65,
+    padding: 20,
+    backgroundColor: "#fff",
+    justifyContent: "center",
   },
 
   windowView: {
