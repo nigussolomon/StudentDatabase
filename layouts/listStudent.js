@@ -1,13 +1,31 @@
-import { Stack, Text, Button, TextInput} from "@react-native-material/core";
+import { Stack, Text, Button, TextInput } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { Divider, List, ListItem } from "@ui-kitten/components";
 import { View } from "react-native";
 
 export default function ListStudent() {
+  const data = new Array(28).fill({
+    title: "First Last Name",
+    description: "Undergraduate Student",
+  });
+
+  const renderItem = ({ item, index }) => (
+    <ListItem
+      title={`${item.title} ${index + 1}`}
+      description={`${item.description} ${index + 1}`}
+    />
+  );
+
   return (
     <Stack spacing={10}>
       <Text style={styles.headTxt} variant="h4">
-        List Student
+        List Students
       </Text>
+      <List
+        data={data}
+        ItemSeparatorComponent={Divider}
+        renderItem={renderItem}
+      />
     </Stack>
   );
 }
@@ -25,6 +43,6 @@ const styles = {
   },
 
   btnView: {
-    flexDirection: 'row',
-  }
+    flexDirection: "row",
+  },
 };
