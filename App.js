@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="Home"></Menu>
-      <View style={styles.containerHome}>
+      <View style={styles.containerAlternate}>
         <Home navigation={navigation} ></Home>
       </View>
     </View>
@@ -61,7 +61,7 @@ const AddStudentScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="New Student"></Menu>
-      <View style={styles.containerHome}>
+      <View style={styles.containerAlternate}>
         <AddStudent></AddStudent>
       </View>
     </View>
@@ -72,7 +72,7 @@ const EditStudentScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="Edit Student"></Menu>
-      <View style={styles.containerHome}>
+      <View style={styles.containerAlternate}>
         <EditStudent></EditStudent>
       </View>
     </View>
@@ -83,7 +83,7 @@ const ListStudentScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="List Student"></Menu>
-      <View style={styles.containerHome}>
+      <View style={styles.containerAlternate}>
         <ListStudent></ListStudent>
       </View>
     </View>
@@ -94,7 +94,7 @@ const DeleteStudentScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="Delete Student"></Menu>
-      <View style={styles.containerHome}>
+      <View style={styles.containerAlternate}>
         <DeleteStudent></DeleteStudent>
       </View>
     </View>
@@ -105,7 +105,7 @@ const ProfileScreen = ({ navigation }) => {
   return (
     <View style={styles.windowView}>
       <Menu navigation={navigation} title="Profile"></Menu>
-      <View style={styles.containerHome}>
+      <View style={styles.containerAlternate}>
         <Profile></Profile>
       </View>
     </View>
@@ -150,11 +150,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  containerHome: {
-    flex: 0.5,
+  containerAlternate: {
+    flex: 1,
     padding: 20,
-    backgroundColor: "#fff",
-    justifyContent: "center",
+    paddingTop: 0,
+    backgroundColor: "#fff"
   },
 
   windowView: {
